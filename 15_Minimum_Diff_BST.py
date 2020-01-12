@@ -33,6 +33,7 @@ class Solution:
         output = []
         self.inorder(root,output)
         mini_diff = float('inf')
+        # for unbounded upper value
         for i in range(1,len(output)):
             mini_diff = min(mini_diff,output[i]-output[i-1])
         return mini_diff
@@ -41,6 +42,7 @@ class Solution:
         if root == None:
             return 
         else:
+         # In increasing Order
             self.inorder(root.left, output)
             output.append(root.val)
             self.inorder(root.right, output)
