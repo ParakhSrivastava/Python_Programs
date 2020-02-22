@@ -22,19 +22,7 @@ Explanation: You are given the third node with value 1, the linked list should b
 #         self.next = None
 
 class Solution:
-    def deleteNode(self, node):
-        """
-        :type node: ListNode
-        :rtype: void Do not return anything, modify node in-place instead.
-        """
-        try:
-            node.val=node.next.val
-            node.next=node.next.next
-        except:
-            return
-head=ListNode(4)
-head.next=ListNode(1)
-head.next.next=ListNode(3)
-head.next.next.next=ListNode(5)
-sol=Solution()
-sol.deleteNode(head.next)
+    def deletenode(self,node):
+        node.next.val, node.val = node.val, node.next.val
+        node.next = node.next.next
+        return node
