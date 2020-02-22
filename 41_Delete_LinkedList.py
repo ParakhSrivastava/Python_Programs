@@ -15,14 +15,27 @@ Output: [4,5,9]
 Explanation: You are given the third node with value 1, the linked list should become 4 -> 5 -> 9 after calling your function.
 '''
 
-# Definition for singly-linked list.
-# class ListNode:
-#     def __init__(self, x):
-#         self.val = x
-#         self.next = None
+class ListNode:
+    def __init__(self, x):
+        self.val = x
+        self.next = None
 
 class Solution:
-    def deletenode(self,node):
-        node.next.val, node.val = node.val, node.next.val
-        node.next = node.next.next
-        return node
+    def deleteNode(self, node):
+        """
+        :type node: ListNode
+        :rtype: void Do not return anything, modify node in-place instead.
+        """
+        try:
+            node.val = node.next.val # Assign Current Node value of next node as we need to override the values
+            node.next = node.next.next
+        except:
+            return
+
+
+head = ListNode(4)
+head.next = ListNode(5)
+head.next.next = ListNode(1)
+head.next.next.next = ListNode(9)
+sol = Solution()
+sol.deleteNode(head.next)
