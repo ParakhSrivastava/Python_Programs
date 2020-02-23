@@ -1,3 +1,8 @@
+
+'''
+BFS or Recursion
+'''
+
 '''
 Given a binary tree, find its minimum depth.
 
@@ -40,3 +45,25 @@ class Solution(object):
         # Agr dono h, to dono children me se min wala hme return krana h
         else:
             return 1 + min(self.minDepth(root.left),self.minDepth(root.right))
+        
+        '''
+        class Solution:
+    def minDepth(self, root: TreeNode) -> int:
+        
+        if not root:
+            return 0
+        queue = []
+        queue.append(root)
+        height = 0
+        while len(queue) > 0:
+            height +=1
+            for _ in range(len(queue)):
+                node= queue.pop(0)
+                if not node.left and not node.right:
+                    return height
+                if node.left:
+                    queue.append(node.left)
+                if node.right:
+                    queue.append(node.right)
+        return 0
+        '''
